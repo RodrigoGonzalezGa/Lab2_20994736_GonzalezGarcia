@@ -5,3 +5,8 @@ optiongetmsg([_,Msg,_,_,_],Msg).
 optiongetcht([_,_,Cht,_,_],Cht).
 optiongetflw([_,_,_,Flw,_],Flw).
 optiongetkey([_,_,_,_,Keys],Keys).
+
+
+
+
+
