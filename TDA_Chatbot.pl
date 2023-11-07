@@ -1,0 +1,9 @@
+:-use_module(tda_Option).
+:-use_module(tda_Utilidades).
+:-use_module(tda_flow).
+chatbot(Id,Name,Msg,Idflow,Flows,[Id,Name,Msg,Idflow,Flows,Idflow]).
+chatbotgetid([Id,_,_,_,_,_],Id).
+chatbotgetmsg([_,Msg,_,_,_,_],Msg).
+chatbotgetflowid([_,_,Idflow,_,_,_],Idflow).
+chatbotgetflows([_,_,_,_,Flows,_],Flows).
+chatbotgetiniflow([_,_,_,_,_,Initialflow],Initialflow).

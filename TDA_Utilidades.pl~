@@ -1,5 +1,5 @@
 :- module(tda_Utilidades,
-          [memberp/2,memberid/2,memberid2/3]).
+          [memberid/2,memberid2/3]).
 
 memberp(V,[V|_]).
 memberp(H,[_|L]):-memberp(H,L).
