@@ -1,4 +1,4 @@
-:- module(tda_flow,
+:- module(tda_Flow,
           [flow/4,flowgetid/2,flowgetmsg/2,flowgetop/2,flowAddOption/3]).
 
 :-use_module(tda_Option).
