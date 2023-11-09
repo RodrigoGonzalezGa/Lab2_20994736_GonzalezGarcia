@@ -1,5 +1,5 @@
 :- module(tda_Utilidades,
-          [memberp/2,memberid/2,memberid2/3]).
+          [memberp/2,memberid/2,memberid2/3,appendfin/3]).
 
 memberp(V,[V|_]).
 memberp(H,[_|L]):-memberp(H,L).
@@ -10,6 +10,6 @@ memberid2(V,[[V,V2]|_],R):-R = [V,V2],!.
 memberid2(V,[_|L],R):-memberid(V,L,R).
 appendfin(V,[],[V]):-!.
 appendfin(V,[H|L],[H|Res]):-appendfin(V,L,Res).
-rebuild([],[_]).
-rebuild([H|L],Res):-memberp(H,Res),rebuild(L,Res).
-rebuild([H|L],Res):-not(memberp(H,Res)),appendfin(H,Res,R),rebuild(L,R).
+%rebuild([],[_]).
+%rebuild([H|L],Res):-memberp(H,Res),rebuild(L,Res).
+% rebuild([H|L],Res):-not(memberp(H,Res)),appendfin(H,Res,R),rebuild(L,R).
