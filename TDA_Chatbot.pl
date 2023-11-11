@@ -1,3 +1,7 @@
+:- module(tda_chatbot,
+          [chatbot/6,rechatbot/7,chatbotgetid/2,chatbotgetname/2,chatbotgetmsg/2,chatbotgetflowact/2,chatbotgetflows/2,chatbotgetiniflow/2,
+          chatbotAddFlow/3]).
+
 :-use_module(tda_Option).
 :-use_module(tda_Utilidades).
 :-use_module(tda_Flow).
@@ -14,7 +18,7 @@ chatbotgetflowact([_,_,_,Flow,_,_],Flow).
 chatbotgetflows([_,_,_,_,Flows,_],Flows).
 chatbotgetiniflow([_,_,_,_,_,Ini],Ini).
 chatbotAddFlow(Chatbot,Flow,Chatbot):-chatbotgetflows(Chatbot,FList),flowgetid(Flow,Fid),
-    memberid(Fid,FList).
+    memberid(Fid,FList),!.
 chatbotAddFlow(Chatbot,Flow,Ch2):-chatbotgetflows(Chatbot,FList),flowgetid(Flow,Fid),
     not(memberid(Fid,FList)),
     appendfin(Flow,FList,R),
