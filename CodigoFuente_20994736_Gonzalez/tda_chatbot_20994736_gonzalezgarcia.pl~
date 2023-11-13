@@ -1,6 +1,6 @@
-:-use_module(tda_Option).
-:-use_module(tda_Utilidades).
-:-use_module(tda_Flow).
+:- module(tda_chatbot_20994736_gonzalezgarcia,
+          [chatbot/6,rechatbot/7,chatbotgetid/2,chatbotgetname/2,chatbotgetmsg/2,chatbotgetflowact/2,chatbotgetflows/2,chatbotgetiniflow/2,chatbotresetid/2,chatbotAddFlow/3]).
+
 % correccion total de selectores de chatbot, predicado rechatbot que
 % permite recrear un chatbot incluyendo el flow inicial, añadido
 % predicado chatbotAddFlow que permite añadir un Flow a un Chatbot,
@@ -13,14 +13,18 @@ chatbotgetmsg([_,_,Msg,_,_,_],Msg).
 chatbotgetflowact([_,_,_,Flow,_,_],Flow).
 chatbotgetflows([_,_,_,_,Flows,_],Flows).
 chatbotgetiniflow([_,_,_,_,_,Ini],Ini).
-chatbotAddFlow(Chatbot,Flow,Chatbot):-chatbotgetflows(Chatbot,FList),flowgetid(Flow,Fid),
-    memberid(Fid,FList).
-chatbotAddFlow(Chatbot,Flow,Ch2):-chatbotgetflows(Chatbot,FList),flowgetid(Flow,Fid),
-    not(memberid(Fid,FList)),
-    appendfin(Flow,FList,R),
+chatbotresetid(Cht,Chtr):-chatbotgetid(Cht,Id),
+    chatbotgetname(Cht,Name),
+    chatbotgetmsg(Cht,Msg),
+    chatbotgetflows(Cht,Flowlist),
+    chatbotgetiniflow(Cht,Iniflow),
+    rechatbot(Id,Name,Msg,Iniflow,Flowlist,Iniflow,Chtr).
+chatbotAddFlow(Chatbot,Flow,Chtr):-chatbotgetflows(Chatbot,Flist),
+    appendfin(Flow,Flist,Flistr),
+    checkrepeatid(Flistr),
     chatbotgetid(Chatbot,Id),
     chatbotgetname(Chatbot,Name),
     chatbotgetmsg(Chatbot,Msg),
     chatbotgetflowact(Chatbot,Flowact),
     chatbotgetiniflow(Chatbot,Iniflow),
-    rechatbot(Id,Name,Msg,Flowact,R,Iniflow,Ch2).
+    rechatbot(Id,Name,Msg,Flowact,Flistr,Iniflow,Chtr).

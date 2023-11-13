@@ -1,8 +1,9 @@
-:-use_module(tda_Option).
-:-use_module(tda_Utilidades).
-:-use_module(tda_Flow).
-:-use_module(tda_chatbot).
-:-use_module(tda_user).
+:-use_module("TDA_Utilidades_20994736_GonzalezGarcia").
+:-use_module("TDA_Option_20994736_GonzalezGarcia").
+:-use_module(tda_flow_20994736_gonzalezgarcia).
+:-use_module("tda_chatbot_20994736_gonzalezgarcia").
+:-use_module("TDA_User_20994736_GonzalezGarcia").
+
 
 %representacion:
 % [nombre,chatbot actual, lista de
@@ -16,7 +17,7 @@ systemgetactiveuser([_,_,User,_,_,_],User).
 systemgetuserlist([_,_,_,Userlist,_,_],Userlist).
 systemgetchtlist([_,_,_,_,Chtlist,_],Chtlist).
 systemgetchtini([_,_,_,_,_,Chtini],Chtini).
-systemresetchatbots([H],Res):-chatbotresetid(H,Res),!.
+systemresetchatbots([H],[Res]):-chatbotresetid(H,Res),!.
 systemresetchatbots([H|L],[Rechat|Res]):-chatbotresetid(H,Rechat),systemresetchatbots(L,Res).
 
 systemAddChatbot(Sys,Cht,Newsys):-systemgetchtlist(Sys,Chtlist),

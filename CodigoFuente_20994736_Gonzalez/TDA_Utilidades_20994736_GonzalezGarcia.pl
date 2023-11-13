@@ -1,5 +1,6 @@
-:- module(tda_Utilidades,
-          [memberp/2,memberid/2,memberidret/3,appendfin/3,checkrepeat/1,checkrepeatid/1]).
+:- module('TDA_Utilidades_20994736_GonzalezGarcia',
+          [memberp/2,memberid/2,appendfin/3,checkrepeat/1,checkrepeatid/1]).
+
 
 memberp(V,[V|_]):-!.
 memberp(H,[_|L]):-memberp(H,L).

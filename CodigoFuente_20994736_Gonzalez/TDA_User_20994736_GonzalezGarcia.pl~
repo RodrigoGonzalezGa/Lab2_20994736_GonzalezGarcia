@@ -1,4 +1,4 @@
-:- module(tda_user,
+:- module('TDA_User',
           [createuser/3,useraddhistory/3]).
 
 createuser(Username,History,[Username,History]).
