@@ -1,0 +1,17 @@
+Requerimientos funcionales
+TDAS: 0.5
+TDA Option - constructor - option: 1
+TDA Flow - constructor - flow: 1
+TDA Flow - modificador - flowAddOption: 1
+TDA chatbot - constructor - chatbot: 1
+TDA chatbot - modificador - chatbotAddFlow: 1
+TDA system - constructor - system: 1
+TDA system - modificador - systemAddChatbot: 1
+TDA system - modificador - systemAddUser: 1
+TDA system - systemLogin: 1
+TDA system - systemLogout: 1
+TDA system - systemTalkRec: 0
+TDA system - systemSynthesis: 0
+TDA system - systemSimulate: 0
+
+

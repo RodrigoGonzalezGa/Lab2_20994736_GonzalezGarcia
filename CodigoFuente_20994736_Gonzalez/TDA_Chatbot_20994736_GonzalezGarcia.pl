@@ -2,11 +2,31 @@
           [chatbot/6,rechatbot/7,chatbotgetid/2,chatbotgetname/2,chatbotgetmsg/2,chatbotgetflowact/2,chatbotgetflows/2,chatbotgetiniflow/2,chatbotresetid/2,chatbotAddFlow/3]).
 :-use_module("TDA_Utilidades_20994736_GonzalezGarcia").
 
-% correccion total de selectores de chatbot, predicado rechatbot que
-% permite recrear un chatbot incluyendo el flow inicial, añadido
-% predicado chatbotAddFlow que permite añadir un Flow a un Chatbot,
-% asegurando que estos no se repitan
-chatbot(Id,Name,Msg,Idflow,Flows,[Id,Name,Msg,Idflow,Flows,Idflow]).
+% Dominios:Id(Integer),Name(String),Idflow(Integer),
+%Flows/Flist(FlowList),Flowini(Integer),Cht/Chtr(Chatbot)
+
+%Predicados:chatbot(Id,Name,Msg,Idflow,Flows,Chatbot)
+%Meta principal: chatbot, Meta Secundaria: checkrepeat
+%rechatbot(Id,Name,Msg,Idflow,Flows,Flowini,Chatbot)
+%chatbotgetid(Chatbot,Id)
+%chatbotgetname(Chatbot,Name)
+%chatbotgetmsg(Chatbot,Msg)
+%chatbotgetflowact(Chatbot,Flow)
+%chatbotgetflows(Chatbot,Flows)
+%chatbotgetiniflow(Chatbot,Ini)
+
+%chatbotresetid(Chatbot,Chatbot)
+%Meta principal: chatbotresetid
+% Metas secundarias:chatbotgetid, chatbotgetname, chatbotgetmsg,
+%chatbotgetflows, chatbotgetiniflow, rechatbot
+
+%chatbotAddFlow(Chatbot,Flow,Chatbot)
+%Meta principal:chatbotAddFlow
+%Metas secundarias:chatbotgetflows, appendfin, checkrepeatid,
+%chatbotgetid, chatbotgetname, chatbotgetmsg, chatbotgetflowact,
+%chatbotgetiniflow, rechatbot
+
+chatbot(Id,Name,Msg,Idflow,Flows,[Id,Name,Msg,Idflow,Flows,Idflow]):-checkrepeatid(Flows).
 rechatbot(Id,Name,Msg,Idflow,Flows,Flowini,[Id,Name,Msg,Idflow,Flows,Flowini]).
 chatbotgetid([Id,_,_,_,_,_],Id).
 chatbotgetname([_,Name,_,_,_,_],Name).

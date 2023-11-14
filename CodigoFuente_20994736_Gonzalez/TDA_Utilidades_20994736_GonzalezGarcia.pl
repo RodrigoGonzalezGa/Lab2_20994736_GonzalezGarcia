@@ -1,12 +1,22 @@
 :- module('TDA_Utilidades_20994736_GonzalezGarcia',
           [memberp/2,memberid/2,appendfin/3,checkrepeat/1,checkrepeatid/1]).
+%Dominio: V (Integer/String)
+%H (Integer/String)
+%L (List)
+%V,V2 (Integer/String)
+%R,Res (List)
 
+%Predicados:memberp(V,List)
+%memberid(H,List)
+%memberidret(V,List)
+%appendfin(V,List,ListResultado)
+%checkrepeat(List)
+%checkrepeatid(List)
 
 memberp(V,[V|_]):-!.
 memberp(H,[_|L]):-memberp(H,L).
 memberid(H,[[H|_]|_]):-!.
 memberid(H,[_|L]):-memberid(H,L).
-%devuelve el valor el valor que tenga la id correcta
 memberidret(V,[[V,V2]|_],R):-R = [V,V2],!.
 memberidret(V,[_|L],R):-memberidret(V,L,R).
 appendfin(V,[],[V]):-!.
